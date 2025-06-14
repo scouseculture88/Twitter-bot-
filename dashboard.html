@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Bot Dashboard</title>
+</head>
+<body>
+    <h1>Twitter Bot Dashboard</h1>
+    <form action="/tweet" method="post">
+        <textarea name="content" rows="4" cols="50" placeholder="What's happening?"></textarea><br>
+        <button type="submit">Post Tweet</button>
+    </form>
+    <form action="/schedule" method="post">
+        <textarea name="content" rows="4" cols="50" placeholder="Schedule a tweet..."></textarea><br>
+        <input type="datetime-local" name="time">
+        <button type="submit">Schedule Tweet</button>
+    </form>
+    <h2>Scheduled Tweets</h2>
+    <ul>
+        {% for tweet in tweets %}
+        <li>{{ tweet[0] }} - {{ tweet[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
